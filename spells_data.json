@@ -1,0 +1,1562 @@
+[
+  {
+    "name": "Acid Arrow",
+    "school": "Evocation",
+    "range": "90 feet"
+  },
+  {
+    "name": "Acid Splash",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Aid",
+    "school": "Abjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Alarm",
+    "school": "Abjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Alter Self",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Animal Friendship",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Animal Messenger",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Animal Shapes",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Animate Dead",
+    "school": "Necromancy",
+    "range": "10 feet"
+  },
+  {
+    "name": "Animate Objects",
+    "school": "Transmutation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Arcanist's Magic Aura",
+    "school": "Illusion",
+    "range": "Touch"
+  },
+  {
+    "name": "Antilife Shell",
+    "school": "Abjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Antimagic Field",
+    "school": "Abjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Antipathy/Sympathy",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Arcane Eye",
+    "school": "Divination",
+    "range": "30 feet"
+  },
+  {
+    "name": "Arcane Hand",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Arcane Lock",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Arcane Sword",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Barkskin",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Banishment",
+    "school": "Abjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Bestow Curse",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "Beacon of Hope",
+    "school": "Abjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Blade Barrier",
+    "school": "Evocation",
+    "range": "90 feet"
+  },
+  {
+    "name": "Bless",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Black Tentacles",
+    "school": "Conjuration",
+    "range": "90 feet"
+  },
+  {
+    "name": "Augury",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Blink",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Astral Projection",
+    "school": "Necromancy",
+    "range": "10 feet"
+  },
+  {
+    "name": "Bane",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Call Lightning",
+    "school": "Conjuration",
+    "range": "120 feet"
+  },
+  {
+    "name": "Blur",
+    "school": "Illusion",
+    "range": "Self"
+  },
+  {
+    "name": "Branding Smite",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Burning Hands",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Charm Person",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Calm Emotions",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Chain Lightning",
+    "school": "Evocation",
+    "range": "150 feet"
+  },
+  {
+    "name": "Blindness/Deafness",
+    "school": "Necromancy",
+    "range": "30 feet"
+  },
+  {
+    "name": "Circle of Death",
+    "school": "Necromancy",
+    "range": "150 feet"
+  },
+  {
+    "name": "Chill Touch",
+    "school": "Necromancy",
+    "range": "120 feet"
+  },
+  {
+    "name": "Clone",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "Blight",
+    "school": "Necromancy",
+    "range": "30 feet"
+  },
+  {
+    "name": "Cloudkill",
+    "school": "Conjuration",
+    "range": "120 feet"
+  },
+  {
+    "name": "Compulsion",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Command",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Commune",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Commune With Nature",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Comprehend Languages",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Conjure Celestial",
+    "school": "Conjuration",
+    "range": "90 feet"
+  },
+  {
+    "name": "Cone of Cold",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Color Spray",
+    "school": "Illusion",
+    "range": "Self"
+  },
+  {
+    "name": "Confusion",
+    "school": "Enchantment",
+    "range": "90 feet"
+  },
+  {
+    "name": "Conjure Fey",
+    "school": "Conjuration",
+    "range": "90 feet"
+  },
+  {
+    "name": "Conjure Elemental",
+    "school": "Conjuration",
+    "range": "90 feet"
+  },
+  {
+    "name": "Conjure Minor Elementals",
+    "school": "Conjuration",
+    "range": "90 feet"
+  },
+  {
+    "name": "Conjure Animals",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Conjure Woodland Beings",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Awaken",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Contingency",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Contact Other Plane",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Contagion",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "Create Food and Water",
+    "school": "Conjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Continual Flame",
+    "school": "Evocation",
+    "range": "Touch"
+  },
+  {
+    "name": "Control Water",
+    "school": "Transmutation",
+    "range": "300 feet"
+  },
+  {
+    "name": "Control Weather",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Counterspell",
+    "school": "Abjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Create Undead",
+    "school": "Necromancy",
+    "range": "10 feet"
+  },
+  {
+    "name": "Create or Destroy Water",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Creation",
+    "school": "Illusion",
+    "range": "30 feet"
+  },
+  {
+    "name": "Cure Wounds",
+    "school": "Evocation",
+    "range": "Touch"
+  },
+  {
+    "name": "Dancing Lights",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Darkness",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Darkvision",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Daylight",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Dimension Door",
+    "school": "Conjuration",
+    "range": "500 feet"
+  },
+  {
+    "name": "Dispel Magic",
+    "school": "Abjuration",
+    "range": "120 feet"
+  },
+  {
+    "name": "Death Ward",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Delayed Blast Fireball",
+    "school": "Evocation",
+    "range": "150 feet"
+  },
+  {
+    "name": "Demiplane",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Detect Evil and Good",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Detect Magic",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Detect Poison and Disease",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Detect Thoughts",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Divine Word",
+    "school": "Evocation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Divination",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Divine Favor",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Dream",
+    "school": "Illusion",
+    "range": "Special"
+  },
+  {
+    "name": "Dominate Beast",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Dominate Monster",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Dominate Person",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Enlarge/Reduce",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Disintegrate",
+    "school": "Transmutation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Druidcraft",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Expeditious Retreat",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Earthquake",
+    "school": "Evocation",
+    "range": "500 feet"
+  },
+  {
+    "name": "Entangle",
+    "school": "Conjuration",
+    "range": "90 feet"
+  },
+  {
+    "name": "Enthrall",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Etherealness",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Dispel Evil and Good",
+    "school": "Abjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Enhance Ability",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Fabricate",
+    "school": "Transmutation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Eyebite",
+    "school": "Necromancy",
+    "range": "Self"
+  },
+  {
+    "name": "Faerie Fire",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Faithful Hound",
+    "school": "Conjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Disguise Self",
+    "school": "Illusion",
+    "range": "Self"
+  },
+  {
+    "name": "Feather Fall",
+    "school": "Transmutation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Fear",
+    "school": "Illusion",
+    "range": "Self"
+  },
+  {
+    "name": "Find Steed",
+    "school": "Conjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Feeblemind",
+    "school": "Enchantment",
+    "range": "150 feet"
+  },
+  {
+    "name": "Find Familiar",
+    "school": "Conjuration",
+    "range": "10 feet"
+  },
+  {
+    "name": "Fire Shield",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Find the Path",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Find Traps",
+    "school": "Divination",
+    "range": "120 feet"
+  },
+  {
+    "name": "Finger of Death",
+    "school": "Necromancy",
+    "range": "60 feet"
+  },
+  {
+    "name": "Fire Bolt",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Flame Blade",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Fire Storm",
+    "school": "Evocation",
+    "range": "150 feet"
+  },
+  {
+    "name": "Fireball",
+    "school": "Evocation",
+    "range": "150 feet"
+  },
+  {
+    "name": "Flame Strike",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Flaming Sphere",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Flesh to Stone",
+    "school": "Transmutation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Floating Disk",
+    "school": "Conjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "False Life",
+    "school": "Necromancy",
+    "range": "Self"
+  },
+  {
+    "name": "Foresight",
+    "school": "Divination",
+    "range": "Touch"
+  },
+  {
+    "name": "Fly",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Fog Cloud",
+    "school": "Conjuration",
+    "range": "120 feet"
+  },
+  {
+    "name": "Forbiddance",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Forcecage",
+    "school": "Evocation",
+    "range": "100 feet"
+  },
+  {
+    "name": "Geas",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Freedom of Movement",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Freezing Sphere",
+    "school": "Evocation",
+    "range": "300 feet"
+  },
+  {
+    "name": "Gaseous Form",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Gate",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Giant Insect",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Gentle Repose",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "Glibness",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Globe of Invulnerability",
+    "school": "Abjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Clairvoyance",
+    "school": "Divination",
+    "range": "1 mile"
+  },
+  {
+    "name": "Glyph of Warding",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Grease",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Goodberry",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Greater Invisibility",
+    "school": "Illusion",
+    "range": "Touch"
+  },
+  {
+    "name": "Eldritch Blast",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Guardian of Faith",
+    "school": "Conjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Greater Restoration",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Guards and Wards",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Guidance",
+    "school": "Divination",
+    "range": "Touch"
+  },
+  {
+    "name": "Heal",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Guiding Bolt",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Gust of Wind",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Heroism",
+    "school": "Enchantment",
+    "range": "Touch"
+  },
+  {
+    "name": "Hallow",
+    "school": "Evocation",
+    "range": "Touch"
+  },
+  {
+    "name": "Hallucinatory Terrain",
+    "school": "Illusion",
+    "range": "300 feet"
+  },
+  {
+    "name": "Harm",
+    "school": "Necromancy",
+    "range": "60 feet"
+  },
+  {
+    "name": "Haste",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Hellish Rebuke",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Heat Metal",
+    "school": "Transmutation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Hypnotic Pattern",
+    "school": "Illusion",
+    "range": "120 feet"
+  },
+  {
+    "name": "Illusory Script",
+    "school": "Illusion",
+    "range": "Touch"
+  },
+  {
+    "name": "Hideous Laughter",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Hold Monster",
+    "school": "Enchantment",
+    "range": "90 feet"
+  },
+  {
+    "name": "Hold Person",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Healing Word",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Identify",
+    "school": "Divination",
+    "range": "Touch"
+  },
+  {
+    "name": "Invisibility",
+    "school": "Illusion",
+    "range": "Touch"
+  },
+  {
+    "name": "Imprisonment",
+    "school": "Abjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Incendiary Cloud",
+    "school": "Conjuration",
+    "range": "150 feet"
+  },
+  {
+    "name": "Inflict Wounds",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "Insect Plague",
+    "school": "Conjuration",
+    "range": "300 feet"
+  },
+  {
+    "name": "Instant Summons",
+    "school": "Conjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Irresistible Dance",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Legend Lore",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Jump",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Knock",
+    "school": "Transmutation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Magic Circle",
+    "school": "Abjuration",
+    "range": "10 feet"
+  },
+  {
+    "name": "Mage Armor",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Mage Hand",
+    "school": "Conjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Lightning Bolt",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Lesser Restoration",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Levitate",
+    "school": "Transmutation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Light",
+    "school": "Evocation",
+    "range": "Touch"
+  },
+  {
+    "name": "Magic Jar",
+    "school": "Necromancy",
+    "range": "Self"
+  },
+  {
+    "name": "Misty Step",
+    "school": "Conjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Magic Weapon",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Magnificent Mansion",
+    "school": "Conjuration",
+    "range": "300 feet"
+  },
+  {
+    "name": "Major Image",
+    "school": "Illusion",
+    "range": "120 feet"
+  },
+  {
+    "name": "Mass Cure Wounds",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Mass Heal",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Mass Healing Word",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Mass Suggestion",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Maze",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Meld Into Stone",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Mending",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Message",
+    "school": "Transmutation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Meteor Swarm",
+    "school": "Evocation",
+    "range": "1 mile"
+  },
+  {
+    "name": "Mind Blank",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Minor Illusion",
+    "school": "Illusion",
+    "range": "30 feet"
+  },
+  {
+    "name": "Mirage Arcane",
+    "school": "Illusion",
+    "range": "Sight"
+  },
+  {
+    "name": "Mirror Image",
+    "school": "Illusion",
+    "range": "Self"
+  },
+  {
+    "name": "Mislead",
+    "school": "Illusion",
+    "range": "Self"
+  },
+  {
+    "name": "Planar Ally",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Modify Memory",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Moonbeam",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Move Earth",
+    "school": "Transmutation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Nondetection",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Pass Without Trace",
+    "school": "Abjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Passwall",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Phantasmal Killer",
+    "school": "Illusion",
+    "range": "120 feet"
+  },
+  {
+    "name": "Phantom Steed",
+    "school": "Illusion",
+    "range": "30 feet"
+  },
+  {
+    "name": "Power Word Kill",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Planar Binding",
+    "school": "Abjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Plane Shift",
+    "school": "Conjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Plant Growth",
+    "school": "Transmutation",
+    "range": "150 feet"
+  },
+  {
+    "name": "Poison Spray",
+    "school": "Conjuration",
+    "range": "10 feet"
+  },
+  {
+    "name": "Polymorph",
+    "school": "Transmutation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Magic Missile",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Locate Creature",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Locate Animals or Plants",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Locate Object",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Prismatic Spray",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Power Word Stun",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Prayer of Healing",
+    "school": "Evocation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Longstrider",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Protection From Energy",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Prismatic Wall",
+    "school": "Abjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Private Sanctum",
+    "school": "Abjuration",
+    "range": "120 feet"
+  },
+  {
+    "name": "Magic Mouth",
+    "school": "Illusion",
+    "range": "30 feet"
+  },
+  {
+    "name": "Raise Dead",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "Protection from Evil and Good",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Protection from Poison",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Purify Food and Drink",
+    "school": "Transmutation",
+    "range": "10 feet"
+  },
+  {
+    "name": "Ray of Frost",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Ray of Enfeeblement",
+    "school": "Necromancy",
+    "range": "60 feet"
+  },
+  {
+    "name": "Programmed Illusion",
+    "school": "Illusion",
+    "range": "120 feet"
+  },
+  {
+    "name": "Project Image",
+    "school": "Illusion",
+    "range": "500 miles"
+  },
+  {
+    "name": "Prestidigitation",
+    "school": "Transmutation",
+    "range": "10 feet"
+  },
+  {
+    "name": "Resistance",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Regenerate",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Reincarnate",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Remove Curse",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Resilient Sphere",
+    "school": "Evocation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Rope Trick",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Resurrection",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "Reverse Gravity",
+    "school": "Transmutation",
+    "range": "100 feet"
+  },
+  {
+    "name": "Sanctuary",
+    "school": "Abjuration",
+    "range": "30 feet"
+  },
+  {
+    "name": "Scrying",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Sacred Flame",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Scorching Ray",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Seeming",
+    "school": "Illusion",
+    "range": "30 feet"
+  },
+  {
+    "name": "Secret Chest",
+    "school": "Conjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Sending",
+    "school": "Evocation",
+    "range": "Unlimited"
+  },
+  {
+    "name": "Sequester",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "See Invisibility",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Shocking Grasp",
+    "school": "Evocation",
+    "range": "Touch"
+  },
+  {
+    "name": "Shield",
+    "school": "Abjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Shield of Faith",
+    "school": "Abjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Shillelagh",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Shapechange",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Silent Image",
+    "school": "Illusion",
+    "range": "60 feet"
+  },
+  {
+    "name": "Silence",
+    "school": "Illusion",
+    "range": "120 feet"
+  },
+  {
+    "name": "Simulacrum",
+    "school": "Illusion",
+    "range": "Touch"
+  },
+  {
+    "name": "Sleep",
+    "school": "Enchantment",
+    "range": "90 feet"
+  },
+  {
+    "name": "Sleet Storm",
+    "school": "Conjuration",
+    "range": "150 feet"
+  },
+  {
+    "name": "Slow",
+    "school": "Transmutation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Speak with Animals",
+    "school": "Divination",
+    "range": "Self"
+  },
+  {
+    "name": "Spare the Dying",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "Speak with Dead",
+    "school": "Necromancy",
+    "range": "10 feet"
+  },
+  {
+    "name": "Speak with Plants",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Shatter",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Produce Flame",
+    "school": "Conjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Revivify",
+    "school": "Conjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Storm of Vengeance",
+    "school": "Conjuration",
+    "range": "Sight"
+  },
+  {
+    "name": "Stoneskin",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Transport via Plants",
+    "school": "Conjuration",
+    "range": "10 feet"
+  },
+  {
+    "name": "Symbol",
+    "school": "Abjuration",
+    "range": "Touch"
+  },
+  {
+    "name": "Telekinesis",
+    "school": "Transmutation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Telepathic Bond",
+    "school": "Divination",
+    "range": "30 feet"
+  },
+  {
+    "name": "Teleport",
+    "school": "Conjuration",
+    "range": "10 feet"
+  },
+  {
+    "name": "Teleportation Circle",
+    "school": "Conjuration",
+    "range": "10 feet"
+  },
+  {
+    "name": "Thaumaturgy",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Thunderwave",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Time Stop",
+    "school": "Transmutation",
+    "range": "Self"
+  },
+  {
+    "name": "Tiny Hut",
+    "school": "Evocation",
+    "range": "Self"
+  },
+  {
+    "name": "Tongues",
+    "school": "Divination",
+    "range": "Touch"
+  },
+  {
+    "name": "Spider Climb",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "True Strike",
+    "school": "Divination",
+    "range": "30 feet"
+  },
+  {
+    "name": "Tree Stride",
+    "school": "Conjuration",
+    "range": "Self"
+  },
+  {
+    "name": "True Polymorph",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "True Resurrection",
+    "school": "Necromancy",
+    "range": "Touch"
+  },
+  {
+    "name": "True Seeing",
+    "school": "Divination",
+    "range": "Touch"
+  },
+  {
+    "name": "Suggestion",
+    "school": "Enchantment",
+    "range": "30 feet"
+  },
+  {
+    "name": "Wall of Ice",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Unseen Servant",
+    "school": "Conjuration",
+    "range": "60 feet"
+  },
+  {
+    "name": "Vampiric Touch",
+    "school": "Necromancy",
+    "range": "Self"
+  },
+  {
+    "name": "Vicious Mockery",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Wall of Fire",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Wall of Force",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Water Breathing",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Water Walk",
+    "school": "Transmutation",
+    "range": "30 feet"
+  },
+  {
+    "name": "Stinking Cloud",
+    "school": "Conjuration",
+    "range": "90 feet"
+  },
+  {
+    "name": "Spike Growth",
+    "school": "Transmutation",
+    "range": "150 feet"
+  },
+  {
+    "name": "Word of Recall",
+    "school": "Conjuration",
+    "range": "5 feet"
+  },
+  {
+    "name": "Wish",
+    "school": "Conjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Zone of Truth",
+    "school": "Enchantment",
+    "range": "60 feet"
+  },
+  {
+    "name": "Spirit Guardians",
+    "school": "Conjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Sunburst",
+    "school": "Evocation",
+    "range": "150 feet"
+  },
+  {
+    "name": "Wind Wall",
+    "school": "Evocation",
+    "range": "120 feet"
+  },
+  {
+    "name": "Stone Shape",
+    "school": "Transmutation",
+    "range": "Touch"
+  },
+  {
+    "name": "Holy Aura",
+    "school": "Abjuration",
+    "range": "Self"
+  },
+  {
+    "name": "Spiritual Weapon",
+    "school": "Evocation",
+    "range": "60 feet"
+  },
+  {
+    "name": "Hunter's Mark",
+    "school": "Divination",
+    "range": "90 feet"
+  },
+  {
+    "name": "Ice Storm",
+    "school": "Evocation",
+    "range": "300 feet"
+  },
+  {
+    "name": "Heroes' Feast",
+    "school": "Conjuration",
+    "range": "30 feet"
+  }
+]
