@@ -1,4 +1,4 @@
-package domain
+package infrastructure
 
 import (
 	"encoding/csv"
@@ -33,7 +33,6 @@ type EquipmentCache struct {
 	Weapons []CachedWeapon `json:"weapons"`
 	Armors  []CachedArmor  `json:"armors"`
 }
-
 
 func LoadCachedSpells() ([]CachedSpell, error) {
 	data, err := os.ReadFile("spells_data.json")
@@ -71,7 +70,6 @@ func LoadCachedEquipment() (EquipmentCache, error) {
 	return eq, nil
 }
 
-
 func FindCachedWeapon(name string) *CachedWeapon {
 	eq, _ := LoadCachedEquipment()
 	for _, w := range eq.Weapons {
@@ -101,7 +99,6 @@ func FindCachedArmor(name string) *CachedArmor {
 	}
 }
 
-
 func FindCachedSpell(name string) *CachedSpell {
 	name = strings.ToLower(strings.TrimSpace(name))
 
@@ -124,7 +121,6 @@ func FindCachedSpell(name string) *CachedSpell {
 		Level:  level,
 	}
 }
-
 
 func loadSpellFromCSV(name string) (int, string, string) {
 	file, err := os.Open("5e-SRD-Spells.csv")

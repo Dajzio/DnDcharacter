@@ -4,18 +4,14 @@ import (
 	"context"
 	"fmt"
 	"strings"
-
 	"starter_pack/domain"
 )
 
 type EquipItemService struct {
-	Repo interface {
-		GetByName(ctx context.Context, name string) (*domain.Character, error)
-		Save(ctx context.Context, c *domain.Character) error
-	}
+	Repo domain.CharacterRepository
 }
 
-func (s *EquipItemService) Execute(ctx context.Context, name string, itemType string, itemName string, slot string) (string, error) {
+func (s *EquipItemService) Execute(ctx context.Context, name, itemType, itemName, slot string) (string, error) {
 	char, err := s.Repo.GetByName(ctx, name)
 	if err != nil {
 		return "", fmt.Errorf("character not found: %w", err)
@@ -25,21 +21,22 @@ func (s *EquipItemService) Execute(ctx context.Context, name string, itemType st
 	itemName = strings.ToLower(itemName)
 	slot = strings.ToLower(slot)
 
-	var message string
-
 	switch itemType {
 	case "weapon":
 		if slot == "" {
 			return "", fmt.Errorf("please specify a slot for the weapon (main hand/off hand)")
 		}
-		message = char.EquipWeapon(itemName, domain.EquipmentSlot(slot))
-
+		if err := char.EquipWeapon(itemName, slot); err != nil {
+			return "", err
+		}
 	case "armor":
-		message = char.EquipArmor(itemName, 0, true) 
-
+		if err := char.EquipArmor(itemName); err != nil {
+			return "", err
+		}
 	case "shield":
-		message = char.EquipShield(itemName, 0) 
-
+		if err := char.EquipShield(itemName); err != nil {
+			return "", err
+		}
 	default:
 		return "", fmt.Errorf("unknown item type: %s", itemType)
 	}
@@ -48,5 +45,5 @@ func (s *EquipItemService) Execute(ctx context.Context, name string, itemType st
 		return "", fmt.Errorf("failed to save character: %w", err)
 	}
 
-	return message, nil
+	return fmt.Sprintf("Equipped %s", itemName), nil
 }

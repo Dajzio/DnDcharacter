@@ -32,17 +32,11 @@ func main() {
 	}
 
 	cmd := os.Args[1]
-	repo := infrastructure.NewFileCharacterRepo("characters.json")
-	createService := &services.CreateCharacterService{Repo: repo}
+	charRepo := infrastructure.NewFileCharacterRepo("characters.json")
+	spellRepo := infrastructure.NewSpellRepository()
 	ctx := context.Background()
 
-	err := domain.LoadSpellsFromCSV("5e-SRD-Spells.csv")
-	if err != nil {
-		fmt.Println("Failed to load spells:", err)
-		os.Exit(1)
-	}
-
-	if err := domain.LoadSpellsFromCSV("5e-SRD-Spells.csv"); err != nil {
+	if err := spellRepo.LoadFromCSV("5e-SRD-Spells.csv"); err != nil {
 		fmt.Println("Failed to load spells:", err)
 		os.Exit(1)
 	}
@@ -73,6 +67,8 @@ func main() {
 			os.Exit(2)
 		}
 
+		skillRepo := domain.NewSkillRepository()
+
 		input := services.CreateCharacterInput{
 			Name:       *name,
 			Race:       domain.Race(strings.ToLower(*race)),
@@ -85,9 +81,9 @@ func main() {
 			Int:        *intel,
 			Wis:        *wis,
 			Cha:        *cha,
-			Skills:     domain.GetDefaultSkills(*class, *background),
+			Skills:     skillRepo.GetDefaultSkills(*class, *background),
 		}
-
+		createService := &services.CreateCharacterService{Repo: charRepo}
 		c, err := createService.Execute(ctx, input)
 		if err != nil {
 			fmt.Println("Error creating character:", err)
@@ -97,7 +93,7 @@ func main() {
 		fmt.Printf("saved character %s\n", c.Name)
 
 	case "list":
-		list, err := repo.List(ctx)
+		list, err := charRepo.List(ctx)
 		if err != nil {
 			fmt.Println("Error listing characters:", err)
 			os.Exit(2)
@@ -125,7 +121,9 @@ func main() {
 			os.Exit(1)
 		}
 
-		if err := services.ViewCharacter("characters.json", *name); err != nil {
+		viewService := &services.ViewCharacterService{Repo: charRepo}
+
+		if err := viewService.Execute(ctx, *name); err != nil {
 			fmt.Println("Error:", err)
 			os.Exit(1)
 		}
@@ -144,7 +142,7 @@ func main() {
 			os.Exit(2)
 		}
 
-		deleteService := &services.DeleteCharacterService{Repo: repo}
+		deleteService := &services.DeleteCharacterService{Repo: charRepo}
 		if err := deleteService.Execute(ctx, *name); err != nil {
 			fmt.Println("Error deleting character:", err)
 			os.Exit(2)
@@ -165,7 +163,7 @@ func main() {
 			os.Exit(2)
 		}
 
-		equipService := &services.EquipItemService{Repo: repo}
+		equipService := &services.EquipItemService{Repo: charRepo}
 		var output string
 		var err error
 
@@ -203,7 +201,10 @@ func main() {
 			os.Exit(1)
 		}
 
-		learnService := &services.LearnSpellService{Repo: repo}
+		learnService := &services.LearnSpellService{
+			Repo:     charRepo,
+			SpellRepo:     spellRepo,
+		}
 		if output, err := learnService.Execute(ctx, *name, *spell); err != nil {
 			fmt.Println("Error:", err)
 			os.Exit(1)
@@ -226,7 +227,10 @@ func main() {
 			os.Exit(1)
 		}
 
-		prepareService := &services.PrepareSpellService{Repo: repo}
+		prepareService := &services.PrepareSpellService{
+			Repo:      charRepo,
+			SpellRepo: spellRepo,
+		}
 		if output, err := prepareService.Execute(ctx, *name, *spell); err != nil {
 			fmt.Println("Error:", err)
 			os.Exit(1)

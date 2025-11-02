@@ -3,7 +3,9 @@ package domain
 import (
 	"fmt"
 	"math"
+	"math/rand"
 	"strings"
+	"time"
 )
 
 type Race string
@@ -29,8 +31,8 @@ type Character struct {
 	SkillProficiencies  []string
 	ProficiencyBonus    int
 	Equipment           Equipment
-	Spells              []Spell 
-	SpellSlots          map[int]int    `json:"spell_slots,omitempty"`
+	Spells              []Spell
+	SpellSlots          map[int]int `json:"spell_slots,omitempty"`
 	SpellcastingAbility string
 	SpellSaveDC         int
 	SpellAttackBonus    int
@@ -63,7 +65,13 @@ type Shield struct {
 	ArmorClass int
 }
 
-func NewCharacter(id, name string, race Race, class Class, level int, ab AbilityScores, background string, skills []string) (*Character, error) {
+type CharacterFactory struct{}
+
+func NewCharacterFactory() *CharacterFactory {
+	return &CharacterFactory{}
+}
+
+func (f *CharacterFactory) Create(id, name string, race Race, class Class, level int, ab AbilityScores, background string, skills []string) (*Character, error) {
 	if name == "" {
 		return nil, fmt.Errorf("name cannot be empty")
 	}
@@ -273,4 +281,78 @@ func CalculateProficiencyBonus(level int) int {
 
 func Modifier(score int) int {
 	return int(math.Floor(float64(score-10) / 2.0))
+}
+
+func GenerateID() string {
+	rand.Seed(time.Now().UnixNano())
+	return fmt.Sprintf("%d", rand.Int63())
+}
+
+func (c *Character) LearnSpell(spell Spell) error {
+	for _, s := range c.Spells {
+		if s.Name == spell.Name {
+			return fmt.Errorf("spell already known: %s", spell.Name)
+		}
+	}
+	c.Spells = append(c.Spells, spell)
+	return nil
+}
+
+func (c *Character) PrepareSpell(spell Spell) error {
+	if !PreparesSpells(string(c.Class)) {
+		return fmt.Errorf("this class cannot prepare spells")
+	}
+
+	slots := GetSpellSlots(c.Class, c.Level)
+	maxSlotLevel := 0
+	for lvl := range slots {
+		if lvl > maxSlotLevel {
+			maxSlotLevel = lvl
+		}
+	}
+
+	if spell.Level > maxSlotLevel {
+		return fmt.Errorf("the spell has higher level than the available spell slots")
+	}
+
+	if count, ok := slots[spell.Level]; !ok || count == 0 {
+		return fmt.Errorf("no slots available for this spell level")
+	}
+
+	for _, s := range c.Spells {
+		if s.Name == spell.Name {
+			return fmt.Errorf("spell already prepared: %s", spell.Name)
+		}
+	}
+
+	c.Spells = append(c.Spells, spell)
+	c.UpdateStats()
+	return nil
+}
+
+func (c *Character) EquipWeapon(name string, slot string) error {
+	slot = strings.ToLower(slot)
+	if slot != "main hand" && slot != "off hand" {
+		return fmt.Errorf("invalid weapon slot: %s", slot)
+	}
+	weapon := &Weapon{Name: name}
+	if slot == "main hand" {
+		c.Equipment.MainHandWeapon = weapon
+	} else {
+		c.Equipment.OffHandWeapon = weapon
+	}
+	c.UpdateStats()
+	return nil
+}
+
+func (c *Character) EquipArmor(name string) error {
+	c.Equipment.Armor = &Armor{Name: name}
+	c.UpdateStats()
+	return nil
+}
+
+func (c *Character) EquipShield(name string) error {
+	c.Equipment.Shield = &Shield{Name: name}
+	c.UpdateStats()
+	return nil
 }

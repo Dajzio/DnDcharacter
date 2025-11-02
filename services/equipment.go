@@ -1,6 +1,9 @@
-package domain
+package services
 
-import "fmt"
+import (
+	"fmt"
+	"starter_pack/domain"
+)
 
 type EquipmentSlot string
 
@@ -11,20 +14,20 @@ const (
 	ShieldSlot EquipmentSlot = "shield"
 )
 
-func (c *Character) EquipWeapon(weaponName string, slot EquipmentSlot) string {
+func EquipWeapon(c *domain.Character, weaponName string, slot EquipmentSlot) string {
 	switch slot {
 	case MainHand:
 		if c.Equipment.MainHandWeapon != nil {
 			return fmt.Sprintf("%s already occupied", slot)
 		}
-		c.Equipment.MainHandWeapon = &Weapon{Name: weaponName}
+		c.Equipment.MainHandWeapon = &domain.Weapon{Name: weaponName}
 		return fmt.Sprintf("Equipped weapon %s to %s", weaponName, slot)
 
 	case OffHand:
 		if c.Equipment.OffHandWeapon != nil {
 			return fmt.Sprintf("%s already occupied", slot)
 		}
-		c.Equipment.OffHandWeapon = &Weapon{Name: weaponName}
+		c.Equipment.OffHandWeapon = &domain.Weapon{Name: weaponName}
 		return fmt.Sprintf("Equipped weapon %s to %s", weaponName, slot)
 
 	default:
@@ -32,29 +35,27 @@ func (c *Character) EquipWeapon(weaponName string, slot EquipmentSlot) string {
 	}
 }
 
-func (c *Character) EquipArmor(armorName string, armorClass int, dexBonus bool) string {
+func EquipArmor(c *domain.Character, armorName string, armorClass int, dexBonus bool) string {
 	if c.Equipment.Armor != nil {
 		return "armor slot already occupied"
 	}
-	c.Equipment.Armor = &Armor{
+	c.Equipment.Armor = &domain.Armor{
 		Name:       armorName,
 		ArmorClass: armorClass,
 		DexBonus:   dexBonus,
 	}
-
-	c.UpdateStats() 
+	c.UpdateStats()
 	return fmt.Sprintf("Equipped armor %s", armorName)
 }
 
-func (c *Character) EquipShield(shieldName string, armorClass int) string {
+func EquipShield(c *domain.Character, shieldName string, armorClass int) string {
 	if c.Equipment.Shield != nil {
 		return "shield slot already occupied"
 	}
-	c.Equipment.Shield = &Shield{
+	c.Equipment.Shield = &domain.Shield{
 		Name:       shieldName,
 		ArmorClass: armorClass,
 	}
-
 	c.UpdateStats()
 	return fmt.Sprintf("Equipped shield %s", shieldName)
 }

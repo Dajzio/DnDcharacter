@@ -21,7 +21,6 @@ func NewFileCharacterRepo(filename string) *FileCharacterRepo {
 	}
 }
 
-// Save dodaje nową postać do pliku JSON (tablica) lub nadpisuje istniejącą
 func (r *FileCharacterRepo) Save(ctx context.Context, c *domain.Character) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
@@ -54,7 +53,6 @@ func (r *FileCharacterRepo) Save(ctx context.Context, c *domain.Character) error
 	return os.WriteFile(r.filename, updated, 0644)
 }
 
-// List zwraca wszystkie postacie
 func (r *FileCharacterRepo) List(ctx context.Context) ([]*domain.Character, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
@@ -78,7 +76,6 @@ func (r *FileCharacterRepo) List(ctx context.Context) ([]*domain.Character, erro
 	return result, nil
 }
 
-// GetByName szuka postaci po nazwie
 func (r *FileCharacterRepo) GetByName(ctx context.Context, name string) (*domain.Character, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
@@ -100,7 +97,6 @@ func (r *FileCharacterRepo) GetByName(ctx context.Context, name string) (*domain
 	return nil, errors.New("character not found")
 }
 
-// Delete usuwa postać po nazwie
 func (r *FileCharacterRepo) Delete(ctx context.Context, name string) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()

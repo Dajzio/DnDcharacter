@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"starter_pack/domain"
-	"starter_pack/infrastructure"
 	"strings"
 )
 
@@ -12,10 +11,12 @@ func abilityMod(score int) int {
 	return domain.Modifier(score)
 }
 
-func ViewCharacter(filename, name string) error {
-	repo := infrastructure.NewFileCharacterRepo(filename)
+type ViewCharacterService struct {
+	Repo domain.CharacterRepository
+}
 
-	list, err := repo.List(context.Background())
+func (s *ViewCharacterService) Execute(ctx context.Context, name string) error {
+	list, err := s.Repo.List(ctx)
 	if err != nil {
 		return err
 	}
@@ -29,11 +30,10 @@ func ViewCharacter(filename, name string) error {
 	}
 
 	if character == nil {
-		return fmt.Errorf("character \"%s\" not found", name)
+		return fmt.Errorf("character %q not found", name)
 	}
 
 	character.UpdateStats()
-
 	PrintCharacter(character)
 	return nil
 }

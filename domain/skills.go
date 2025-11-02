@@ -5,7 +5,14 @@ import (
 	"strings"
 )
 
-func GetAllClassSkills(class string) []string {
+type SkillRepository struct{}
+
+func NewSkillRepository() *SkillRepository {
+	return &SkillRepository{}
+}
+
+
+func (r *SkillRepository) GetAllClassSkills(class string) []string {
 	classSkills := map[string][]string{
 		"barbarian": {"Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"},
 		"bard":      {"Arcana", "Deception", "Insight", "Intimidation", "Performance", "Persuasion", "Religion"},
@@ -26,7 +33,7 @@ func GetAllClassSkills(class string) []string {
 	return skills
 }
 
-func GetAllBackgroundSkills(background string) []string {
+func (r *SkillRepository) GetAllBackgroundSkills(background string) []string {
 	backgroundSkills := map[string][]string{
 		"acolyte":       {"Insight", "Religion"},
 		"charlatan":     {"Deception", "Sleight of Hand"},
@@ -48,9 +55,9 @@ func GetAllBackgroundSkills(background string) []string {
 	return skills
 }
 
-func GetDefaultSkills(class string, background string) []string {
-	classSkills := GetAllClassSkills(class)
-	backgroundSkills := GetAllBackgroundSkills(background)
+func (r *SkillRepository) GetDefaultSkills(class string, background string) []string {
+	classSkills := r.GetAllClassSkills(class)
+	backgroundSkills := r.GetAllBackgroundSkills(background)
 
 	classSkillCount := map[string]int{
 		"barbarian": 2,
