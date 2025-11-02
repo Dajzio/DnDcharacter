@@ -417,11 +417,12 @@
     document.querySelector('[name=initiative]').value = c.initiative || '';
 
     if (Array.isArray(c.SkillProficiencies)) {
-      c.SkillProficiencies.forEach(skill => {
-        const checkbox = document.querySelector(`[name="${capitalize(skill)}-prof"]`);
-        if (checkbox) checkbox.checked = true;
-      });
-    }
+  for (const skill of c.SkillProficiencies) {
+    const checkbox = document.querySelector(`[name="${capitalize(skill)}-prof"]`);
+    if (checkbox) checkbox.checked = true;
+  }
+}
+
   }
 
   function capitalize(str) {

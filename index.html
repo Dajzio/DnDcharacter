@@ -36,31 +36,29 @@
   <h1>Character List</h1>
   <div id="characters"></div>
 
-  <script>
-    fetch('characters.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to load characters.json');
-        }
-        return response.json();
-      })
-      .then(data => displayCharacters(data))
-      .catch(error => {
-        document.getElementById('characters').textContent = error.message;
-      });
+  <script type="module">
+  const container = document.getElementById('characters');
 
-    function displayCharacters(characters) {
-      const container = document.getElementById('characters');
-      characters.forEach(c => {
-        const div = document.createElement('div');
-        div.className = 'character';
-        div.innerHTML = `
-          <a href="charactersheet.html?id=${encodeURIComponent(c.ID)}">${c.Name}</a>
-        `;
-
-        container.appendChild(div);
-      });
+  try {
+    const response = await fetch('characters.json');
+    if (!response.ok) {
+      throw new Error('Failed to load characters.json');
     }
-  </script>
+
+    const characters = await response.json();
+
+    for (const c of characters) {
+      const div = document.createElement('div');
+      div.className = 'character';
+      div.innerHTML = `
+        <a href="charactersheet.html?id=${encodeURIComponent(c.ID)}">${c.Name}</a>
+      `;
+      container.appendChild(div);
+    }
+  } catch (error) {
+    container.textContent = error.message;
+  }
+</script>
+
 </body>
 </html>

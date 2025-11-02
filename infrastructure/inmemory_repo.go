@@ -10,6 +10,10 @@ import (
 	"sync"
 )
 
+const ErrCharacterNotFoundMsg = "character not found"
+
+var ErrCharacterNotFound = errors.New(ErrCharacterNotFoundMsg)
+
 type FileCharacterRepo struct {
 	mu       sync.Mutex
 	filename string
@@ -94,7 +98,7 @@ func (r *FileCharacterRepo) GetByName(ctx context.Context, name string) (*domain
 			return &characters[i], nil
 		}
 	}
-	return nil, errors.New("character not found")
+	return nil, ErrCharacterNotFound
 }
 
 func (r *FileCharacterRepo) Delete(ctx context.Context, name string) error {
@@ -121,7 +125,7 @@ func (r *FileCharacterRepo) Delete(ctx context.Context, name string) error {
 	}
 
 	if !found {
-		return errors.New("character not found")
+		return ErrCharacterNotFound
 	}
 
 	updated, err := json.MarshalIndent(newList, "", "  ")
@@ -150,5 +154,5 @@ func (r *FileCharacterRepo) GetByID(ctx context.Context, id string) (*domain.Cha
 			return &characters[i], nil
 		}
 	}
-	return nil, errors.New("character not found")
+	return nil, ErrCharacterNotFound
 }
