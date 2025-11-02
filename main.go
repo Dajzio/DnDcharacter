@@ -66,12 +66,13 @@ func main() {
 		handlePrepareSpell(ctx, charRepo, spellRepo)
 	case "enrich":
 		services.EnrichData()
+	case "sheet":
+		handleSheet(ctx, charRepo)
 	default:
 		usage()
 		os.Exit(2)
 	}
 }
-
 
 func handleCreate(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
 	createCmd := flag.NewFlagSet("create", flag.ExitOnError)
@@ -175,7 +176,6 @@ func handleDelete(ctx context.Context, charRepo *infrastructure.FileCharacterRep
 	fmt.Printf("deleted %s\n", *name)
 }
 
-
 func handleEquip(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
 	equipCmd := flag.NewFlagSet("equip", flag.ExitOnError)
 	name := equipCmd.String("name", "", CharacterName)
@@ -263,4 +263,28 @@ func handlePrepareSpell(ctx context.Context, charRepo *infrastructure.FileCharac
 	} else {
 		fmt.Println(output)
 	}
+}
+
+func handleSheet(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
+	sheetCmd := flag.NewFlagSet("sheet", flag.ExitOnError)
+	name := sheetCmd.String("name", "", CharacterName)
+	format := sheetCmd.String("format", "markdown", "Output format")
+
+	if err := sheetCmd.Parse(os.Args[2:]); err != nil {
+		fmt.Println(ErrParseFlags, err)
+		os.Exit(2)
+	}
+	if *name == "" {
+		fmt.Println(NameRequired)
+		os.Exit(1)
+	}
+
+	sheetService := &services.CharacterSheetService{Repo: charRepo}
+	output, err := sheetService.Execute(ctx, *name, *format)
+	if err != nil {
+		fmt.Println(ErrGeneral, err)
+		os.Exit(1)
+	}
+
+	fmt.Println(output)
 }
