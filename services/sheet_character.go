@@ -100,47 +100,65 @@ func (s *CharacterSheetService) buildCombatStatsSection(char *domain.Character) 
 
 func (s *CharacterSheetService) buildSpellSection(char *domain.Character) string {
 	var sb strings.Builder
-	if len(char.SpellSlots) > 0 {
-		sb.WriteString("## Spell slots [leave empty on non-casters]\n")
-		keys := make([]int, 0, len(char.SpellSlots))
-		for k := range char.SpellSlots {
-			keys = append(keys, k)
-		}
-		sort.Ints(keys)
-		for _, lvl := range keys {
-			sb.WriteString(fmt.Sprintf("Level %d: %d\n", lvl, char.SpellSlots[lvl]))
+	sb.WriteString(s.buildSpellSlotsSection(char))
+	sb.WriteString(s.buildSpellcastingSection(char))
+	sb.WriteString(s.buildSpellsByLevelSection(char))
+	return sb.String()
+}
+
+func (s *CharacterSheetService) buildSpellSlotsSection(char *domain.Character) string {
+	if len(char.SpellSlots) == 0 {
+		return ""
+	}
+	var sb strings.Builder
+	sb.WriteString("## Spell slots [leave empty on non-casters]\n")
+	keys := make([]int, 0, len(char.SpellSlots))
+	for k := range char.SpellSlots {
+		keys = append(keys, k)
+	}
+	sort.Ints(keys)
+	for _, lvl := range keys {
+		sb.WriteString(fmt.Sprintf("Level %d: %d\n", lvl, char.SpellSlots[lvl]))
+	}
+	sb.WriteString("\n")
+	return sb.String()
+}
+
+func (s *CharacterSheetService) buildSpellcastingSection(char *domain.Character) string {
+	if char.SpellcastingAbility == "" {
+		return ""
+	}
+	var sb strings.Builder
+	sb.WriteString("## Spellcasting [leave empty on non-casters]\n")
+	sb.WriteString(fmt.Sprintf("Spellcasting ability: %s\n", FullAbilityName(char.SpellcastingAbility)))
+	sb.WriteString(fmt.Sprintf("Spell save DC: %d\n", char.SpellSaveDC))
+	sb.WriteString(fmt.Sprintf("Spell attack bonus: %+d\n\n", char.SpellAttackBonus))
+	return sb.String()
+}
+
+func (s *CharacterSheetService) buildSpellsByLevelSection(char *domain.Character) string {
+	if len(char.Spells) == 0 {
+		return ""
+	}
+	var sb strings.Builder
+	sb.WriteString("## Spells [leave empty on non-casters, only add levels that contain spells]\n\n")
+	spellsByLevel := map[int][]string{}
+	for _, sp := range char.Spells {
+		spellsByLevel[sp.Level] = append(spellsByLevel[sp.Level], sp.Name)
+	}
+
+	levels := make([]int, 0, len(spellsByLevel))
+	for lvl := range spellsByLevel {
+		levels = append(levels, lvl)
+	}
+	sort.Ints(levels)
+
+	for _, lvl := range levels {
+		sb.WriteString(fmt.Sprintf("### Level %d\n", lvl))
+		for _, spName := range spellsByLevel[lvl] {
+			sb.WriteString(fmt.Sprintf("- %s\n", spName))
 		}
 		sb.WriteString("\n")
 	}
-
-	if char.SpellcastingAbility != "" {
-		sb.WriteString("## Spellcasting [leave empty on non-casters]\n")
-		sb.WriteString(fmt.Sprintf("Spellcasting ability: %s\n", FullAbilityName(char.SpellcastingAbility)))
-		sb.WriteString(fmt.Sprintf("Spell save DC: %d\n", char.SpellSaveDC))
-		sb.WriteString(fmt.Sprintf("Spell attack bonus: %+d\n\n", char.SpellAttackBonus))
-	}
-
-	if len(char.Spells) > 0 {
-		sb.WriteString("## Spells [leave empty on non-casters, only add levels that contain spells]\n\n")
-		spellsByLevel := map[int][]string{}
-		for _, sp := range char.Spells {
-			spellsByLevel[sp.Level] = append(spellsByLevel[sp.Level], sp.Name)
-		}
-
-		levels := make([]int, 0, len(spellsByLevel))
-		for lvl := range spellsByLevel {
-			levels = append(levels, lvl)
-		}
-		sort.Ints(levels)
-
-		for _, lvl := range levels {
-			sb.WriteString(fmt.Sprintf("### Level %d\n", lvl))
-			for _, spName := range spellsByLevel[lvl] {
-				sb.WriteString(fmt.Sprintf("- %s\n", spName))
-			}
-			sb.WriteString("\n")
-		}
-	}
-
 	return sb.String()
 }

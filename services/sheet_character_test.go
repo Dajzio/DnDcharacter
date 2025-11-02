@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestCharacterSheetService_Success(t *testing.T) {
+func TestCharacterSheetServiceSuccess(t *testing.T) {
 	char := &domain.Character{
 		Name:      "Aragorn",
 		Class:     "Ranger",
@@ -62,7 +62,7 @@ func TestCharacterSheetService_Success(t *testing.T) {
 	}
 }
 
-func TestCharacterSheetService_CharacterNotFound(t *testing.T) {
+func TestCharacterSheetServiceCharacterNotFound(t *testing.T) {
 	repo := &MockCharacterRepo{
 		Characters: map[string]*domain.Character{},
 	}
@@ -73,7 +73,7 @@ func TestCharacterSheetService_CharacterNotFound(t *testing.T) {
 	}
 }
 
-func TestCharacterSheetService_UnsupportedFormat(t *testing.T) {
+func TestCharacterSheetServiceUnsupportedFormat(t *testing.T) {
 	char := &domain.Character{Name: "Frodo"}
 	repo := &MockCharacterRepo{Characters: map[string]*domain.Character{"Frodo": char}}
 	service := &CharacterSheetService{Repo: repo}

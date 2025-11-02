@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestViewCharacterService_Success(t *testing.T) {
+func TestViewCharacterServiceSuccess(t *testing.T) {
 	char := &domain.Character{
 		Name:      "Gandalf",
 		Class:     "Wizard",
@@ -38,7 +38,6 @@ func TestViewCharacterService_Success(t *testing.T) {
 
 	service := &ViewCharacterService{Repo: repo}
 
-	// Przechwycenie stdout
 	old := os.Stdout
 	r, w, _ := os.Pipe()
 	os.Stdout = w
@@ -69,7 +68,7 @@ func TestViewCharacterService_Success(t *testing.T) {
 	}
 }
 
-func TestViewCharacterService_NotFound(t *testing.T) {
+func TestViewCharacterServiceNotFound(t *testing.T) {
 	repo := &MockCharacterRepo{Characters: map[string]*domain.Character{}}
 	service := &ViewCharacterService{Repo: repo}
 

@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestLearnSpellService_Success(t *testing.T) {
+func TestLearnSpellServiceSuccess(t *testing.T) {
 	char := &domain.Character{
 		Name:   "Gandalf",
 		Class:  "Wizard",
@@ -33,7 +33,7 @@ func TestLearnSpellService_Success(t *testing.T) {
 	}
 }
 
-func TestLearnSpellService_AlreadyKnown(t *testing.T) {
+func TestLearnSpellServiceAlreadyKnown(t *testing.T) {
 	char := &domain.Character{
 		Name:   "Gandalf",
 		Class:  "Wizard",
@@ -52,7 +52,7 @@ func TestLearnSpellService_AlreadyKnown(t *testing.T) {
 	}
 }
 
-func TestLearnSpellService_CharacterNotFound(t *testing.T) {
+func TestLearnSpellServiceCharacterNotFound(t *testing.T) {
 	repo := &MockCharacterRepo{Characters: map[string]*domain.Character{}}
 	spellRepo := &MockSpellRepo{Spells: map[string]domain.Spell{"Fireball": {Name: "Fireball"}}}
 
@@ -63,7 +63,7 @@ func TestLearnSpellService_CharacterNotFound(t *testing.T) {
 	}
 }
 
-func TestLearnSpellService_SpellNotFound(t *testing.T) {
+func TestLearnSpellServiceSpellNotFound(t *testing.T) {
 	char := &domain.Character{Name: "Gandalf"}
 	repo := &MockCharacterRepo{Characters: map[string]*domain.Character{"Gandalf": char}}
 	spellRepo := &MockSpellRepo{Spells: map[string]domain.Spell{}}

@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestCreateCharacterService_Success(t *testing.T) {
+func TestCreateCharacterServiceSuccess(t *testing.T) {
 	repo := &MockCharacterRepo{Characters: make(map[string]*domain.Character)}
 	factory := &domain.CharacterFactory{}
 	service := &CreateCharacterService{Repo: repo, Factory: factory}
@@ -45,7 +45,7 @@ func TestCreateCharacterService_Success(t *testing.T) {
 	}
 }
 
-func TestCreateCharacterService_RepoError(t *testing.T) {
+func TestCreateCharacterServiceRepoError(t *testing.T) {
 	repo := &MockCharacterRepo{
 		Characters: make(map[string]*domain.Character),
 		SaveErr:    errors.New("save error"),
@@ -74,7 +74,7 @@ func TestCreateCharacterService_RepoError(t *testing.T) {
 	}
 }
 
-func TestCreateCharacterService_InvalidInput(t *testing.T) {
+func TestCreateCharacterServiceInvalidInput(t *testing.T) {
 	repo := &MockCharacterRepo{Characters: make(map[string]*domain.Character)}
 	factory := &domain.CharacterFactory{}
 	service := &CreateCharacterService{Repo: repo, Factory: factory}

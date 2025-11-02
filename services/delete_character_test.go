@@ -25,7 +25,7 @@ func (m *mockDeleteRepo) Delete(ctx context.Context, name string) error {
 	return nil
 }
 
-func TestDeleteCharacterService_Success(t *testing.T) {
+func TestDeleteCharacterServiceSuccess(t *testing.T) {
 	mockRepo := &mockDeleteRepo{
 		deleteFunc: func(ctx context.Context, name string) error {
 			if name != "Gandalf" {
@@ -43,7 +43,7 @@ func TestDeleteCharacterService_Success(t *testing.T) {
 	}
 }
 
-func TestDeleteCharacterService_Error(t *testing.T) {
+func TestDeleteCharacterServiceError(t *testing.T) {
 	expectedErr := errors.New("character not found")
 	mockRepo := &mockDeleteRepo{
 		deleteFunc: func(ctx context.Context, name string) error {

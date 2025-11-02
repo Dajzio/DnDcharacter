@@ -70,5 +70,49 @@
     "armor_class": 14,
     "initiative": -1,
     "passive_perception": 13
+  },
+  {
+    "ID": "4563982942814539359",
+    "Name": "Qui-Gon Jinn",
+    "Race": "human",
+    "Class": "cleric",
+    "Background": "acolyte",
+    "Level": 10,
+    "AbilityScores": {
+      "Str": 15,
+      "Dex": 9,
+      "Con": 11,
+      "Int": 14,
+      "Wis": 16,
+      "Cha": 13
+    },
+    "SkillProficiencies": [
+      "history",
+      "insight",
+      "insight",
+      "religion"
+    ],
+    "ProficiencyBonus": 4,
+    "Equipment": {
+      "MainHandWeapon": null,
+      "OffHandWeapon": null,
+      "Armor": null,
+      "Shield": null
+    },
+    "Spells": null,
+    "spell_slots": {
+      "0": 5,
+      "1": 4,
+      "2": 3,
+      "3": 3,
+      "4": 3,
+      "5": 2
+    },
+    "SpellcastingAbility": "WIS",
+    "SpellSaveDC": 15,
+    "SpellAttackBonus": 7,
+    "armor_class": 9,
+    "initiative": -1,
+    "passive_perception": 13
   }
 ]
