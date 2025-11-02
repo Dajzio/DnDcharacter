@@ -11,21 +11,41 @@ func NewSkillRepository() *SkillRepository {
 	return &SkillRepository{}
 }
 
+const (
+	SkillAnimalHandling = "Animal Handling"
+	SkillAthletics      = "Athletics"
+	SkillIntimidation   = "Intimidation"
+	SkillNature         = "Nature"
+	SkillPerception     = "Perception"
+	SkillSurvival       = "Survival"
+	SkillArcana         = "Arcana"
+	SkillDeception      = "Deception"
+	SkillInsight        = "Insight"
+	SkillPerformance    = "Performance"
+	SkillPersuasion     = "Persuasion"
+	SkillReligion       = "Religion"
+	SkillHistory        = "History"
+	SkillMedicine       = "Medicine"
+	SkillInvestigation  = "Investigation"
+	SkillStealth        = "Stealth"
+	SkillSleightOfHand  = "Sleight of Hand"
+	SkillAcrobatics     = "Acrobatics"
+)
 
 func (r *SkillRepository) GetAllClassSkills(class string) []string {
 	classSkills := map[string][]string{
-		"barbarian": {"Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"},
-		"bard":      {"Arcana", "Deception", "Insight", "Intimidation", "Performance", "Persuasion", "Religion"},
-		"cleric":    {"History", "Insight", "Medicine", "Persuasion", "Religion"},
-		"druid":     {"Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"},
-		"fighter":   {"Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"},
-		"monk":      {"Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"},
-		"paladin":   {"Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"},
-		"ranger":    {"Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"},
-		"rogue":     {"Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"},
-		"sorcerer":  {"Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"},
-		"warlock":   {"Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"},
-		"wizard":    {"Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"},
+		"barbarian": {SkillAnimalHandling, SkillAthletics, SkillIntimidation, SkillNature, SkillPerception, SkillSurvival},
+		"bard":      {SkillArcana, SkillDeception, SkillInsight, SkillIntimidation, SkillPerformance, SkillPersuasion, SkillReligion},
+		"cleric":    {SkillHistory, SkillInsight, SkillMedicine, SkillPersuasion, SkillReligion},
+		"druid":     {SkillArcana, SkillAnimalHandling, SkillInsight, SkillMedicine, SkillNature, SkillPerception, SkillReligion, SkillSurvival},
+		"fighter":   {SkillAcrobatics, SkillAnimalHandling, SkillAthletics, SkillHistory, SkillInsight, SkillIntimidation, SkillPerception, SkillSurvival},
+		"monk":      {SkillAcrobatics, SkillAthletics, SkillHistory, SkillInsight, SkillReligion, SkillStealth},
+		"paladin":   {SkillAthletics, SkillInsight, SkillIntimidation, SkillMedicine, SkillPersuasion, SkillReligion},
+		"ranger":    {SkillAnimalHandling, SkillAthletics, SkillInsight, SkillInvestigation, SkillNature, SkillPerception, SkillStealth, SkillSurvival},
+		"rogue":     {SkillAcrobatics, SkillAthletics, SkillDeception, SkillInsight, SkillIntimidation, SkillInvestigation, SkillPerception, SkillPerformance, SkillPersuasion, SkillSleightOfHand, SkillStealth},
+		"sorcerer":  {SkillArcana, SkillDeception, SkillInsight, SkillIntimidation, SkillPersuasion, SkillReligion},
+		"warlock":   {SkillArcana, SkillDeception, SkillHistory, SkillIntimidation, SkillInvestigation, SkillNature, SkillReligion},
+		"wizard":    {SkillArcana, SkillHistory, SkillInsight, SkillInvestigation, SkillMedicine, SkillReligion},
 	}
 
 	skills := classSkills[strings.ToLower(class)]
@@ -35,19 +55,19 @@ func (r *SkillRepository) GetAllClassSkills(class string) []string {
 
 func (r *SkillRepository) GetAllBackgroundSkills(background string) []string {
 	backgroundSkills := map[string][]string{
-		"acolyte":       {"Insight", "Religion"},
-		"charlatan":     {"Deception", "Sleight of Hand"},
-		"criminal":      {"Deception", "Stealth"},
-		"entertainer":   {"Acrobatics", "Performance"},
-		"folk hero":     {"Animal Handling", "Survival"},
-		"guild artisan": {"Insight", "Persuasion"},
-		"hermit":        {"Medicine", "Religion"},
-		"noble":         {"History", "Persuasion"},
-		"outlander":     {"Athletics", "Survival"},
-		"sage":          {"Arcana", "History"},
-		"sailor":        {"Athletics", "Perception"},
-		"soldier":       {"Athletics", "Intimidation"},
-		"urchin":        {"Sleight of Hand", "Stealth"},
+		"acolyte":       {SkillInsight, SkillReligion},
+		"charlatan":     {SkillDeception, SkillSleightOfHand},
+		"criminal":      {SkillDeception, SkillStealth},
+		"entertainer":   {SkillAcrobatics, SkillPerformance},
+		"folk hero":     {SkillAnimalHandling, SkillSurvival},
+		"guild artisan": {SkillInsight, SkillPersuasion},
+		"hermit":        {SkillMedicine, SkillReligion},
+		"noble":         {SkillHistory, SkillPersuasion},
+		"outlander":     {SkillAthletics, SkillSurvival},
+		"sage":          {SkillArcana, SkillHistory},
+		"sailor":        {SkillAthletics, SkillPerception},
+		"soldier":       {SkillAthletics, SkillIntimidation},
+		"urchin":        {SkillSleightOfHand, SkillStealth},
 	}
 
 	skills := backgroundSkills[strings.ToLower(background)]

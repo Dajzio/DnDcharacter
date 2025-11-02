@@ -32,16 +32,16 @@ func (s *CreateCharacterService) Execute(ctx context.Context, input CreateCharac
 		Int: input.Int, Wis: input.Wis, Cha: input.Cha,
 	}
 
-	char, err := s.Factory.Create(
-		domain.GenerateID(),
-		input.Name,
-		input.Race,
-		input.Class,
-		input.Level,
-		ab,
-		input.Background,
-		input.Skills,
-	)
+	char, err := s.Factory.Create(domain.CharacterParams{
+		ID:         domain.GenerateID(),
+		Name:       input.Name,
+		Race:       input.Race,
+		Class:      input.Class,
+		Level:      input.Level,
+		Ability:    ab,
+		Background: input.Background,
+		Skills:     input.Skills,
+	})
 	if err != nil {
 		return nil, fmt.Errorf("cannot create character: %w", err)
 	}

@@ -71,32 +71,43 @@ func NewCharacterFactory() *CharacterFactory {
 	return &CharacterFactory{}
 }
 
-func (f *CharacterFactory) Create(id, name string, race Race, class Class, level int, ab AbilityScores, background string, skills []string) (*Character, error) {
-	if name == "" {
+type CharacterParams struct {
+	ID         string
+	Name       string
+	Race       Race
+	Class      Class
+	Level      int
+	Ability    AbilityScores
+	Background string
+	Skills     []string
+}
+
+func (f *CharacterFactory) Create(params CharacterParams) (*Character, error) {
+	if params.Name == "" {
 		return nil, fmt.Errorf("name cannot be empty")
 	}
-	if level < 1 {
+	if params.Level < 1 {
 		return nil, fmt.Errorf("level cannot be lower than 1")
 	}
 
-	racialBonuses := GetRacialBonuses(race)
-	ab.Str += racialBonuses["Str"]
-	ab.Dex += racialBonuses["Dex"]
-	ab.Con += racialBonuses["Con"]
-	ab.Int += racialBonuses["Int"]
-	ab.Wis += racialBonuses["Wis"]
-	ab.Cha += racialBonuses["Cha"]
+	racialBonuses := GetRacialBonuses(params.Race)
+	params.Ability.Str += racialBonuses["Str"]
+	params.Ability.Dex += racialBonuses["Dex"]
+	params.Ability.Con += racialBonuses["Con"]
+	params.Ability.Int += racialBonuses["Int"]
+	params.Ability.Wis += racialBonuses["Wis"]
+	params.Ability.Cha += racialBonuses["Cha"]
 
 	char := &Character{
-		ID:                 id,
-		Name:               name,
-		Race:               race,
-		Class:              class,
-		Level:              level,
-		AbilityScores:      ab,
-		Background:         background,
-		SkillProficiencies: skills,
-		ProficiencyBonus:   CalculateProficiencyBonus(level),
+		ID:                 params.ID,
+		Name:               params.Name,
+		Race:               params.Race,
+		Class:              params.Class,
+		Level:              params.Level,
+		AbilityScores:      params.Ability,
+		Background:         params.Background,
+		SkillProficiencies: params.Skills,
+		ProficiencyBonus:   CalculateProficiencyBonus(params.Level),
 	}
 
 	char.UpdateStats()
