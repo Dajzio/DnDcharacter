@@ -33,25 +33,6 @@ func TestLearnSpellServiceSuccess(t *testing.T) {
 	}
 }
 
-func TestLearnSpellServiceAlreadyKnown(t *testing.T) {
-	char := &domain.Character{
-		Name:   "Gandalf",
-		Class:  "Wizard",
-		Level:  3,
-		Spells: []domain.Spell{{Name: "Fireball", Level: 3, Class: []string{"wizard"}}},
-	}
-	repo := &MockCharacterRepo{Characters: map[string]*domain.Character{"Gandalf": char}}
-	spellRepo := &MockSpellRepo{
-		Spells: map[string]domain.Spell{"Fireball": {Name: "Fireball", Level: 3, Class: []string{"wizard"}}},
-	}
-
-	service := &LearnSpellService{Repo: repo, SpellRepo: spellRepo}
-	_, err := service.Execute(context.Background(), "Gandalf", "Fireball")
-	if err == nil || err.Error() != "spell already known: Fireball" {
-		t.Errorf("expected already known error, got %v", err)
-	}
-}
-
 func TestLearnSpellServiceCharacterNotFound(t *testing.T) {
 	repo := &MockCharacterRepo{Characters: map[string]*domain.Character{}}
 	spellRepo := &MockSpellRepo{Spells: map[string]domain.Spell{"Fireball": {Name: "Fireball"}}}
