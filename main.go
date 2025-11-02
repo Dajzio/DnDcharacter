@@ -11,7 +11,6 @@ import (
 	"strings"
 )
 
-// --- Constants for repeated literals ---
 const (
 	ErrParseFlags   = "Failed to parse flags:"
 	ErrGeneral      = "Error:"
@@ -73,7 +72,6 @@ func main() {
 	}
 }
 
-// --- Handlers ---
 
 func handleCreate(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
 	createCmd := flag.NewFlagSet("create", flag.ExitOnError)
@@ -187,7 +185,7 @@ func handleEquip(ctx context.Context, charRepo *infrastructure.FileCharacterRepo
 	slot := equipCmd.String("slot", "", "Slot (main hand/off hand)")
 
 	if err := equipCmd.Parse(os.Args[2:]); err != nil {
-		fmt.Println("Failed to parse flags:", err)
+		fmt.Println(ErrParseFlags, err)
 		os.Exit(2)
 	}
 
@@ -208,7 +206,7 @@ func handleEquip(ctx context.Context, charRepo *infrastructure.FileCharacterRepo
 	}
 
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println(ErrGeneral, err)
 		os.Exit(1)
 	}
 
@@ -217,15 +215,15 @@ func handleEquip(ctx context.Context, charRepo *infrastructure.FileCharacterRepo
 
 func handleLearnSpell(ctx context.Context, charRepo *infrastructure.FileCharacterRepo, spellRepo *infrastructure.SpellRepository) {
 	learnCmd := flag.NewFlagSet("learn-spell", flag.ExitOnError)
-	name := learnCmd.String("name", "", "Character name")
+	name := learnCmd.String("name", "", CharacterName)
 	spell := learnCmd.String("spell", "", "Spell name")
 
 	if err := learnCmd.Parse(os.Args[2:]); err != nil {
-		fmt.Println("Failed to parse flags:", err)
+		fmt.Println(ErrParseFlags, err)
 		os.Exit(2)
 	}
 	if *name == "" || *spell == "" {
-		fmt.Println("Error: -name and -spell are required")
+		fmt.Println(NameAndSpellReq)
 		os.Exit(1)
 	}
 
@@ -234,7 +232,7 @@ func handleLearnSpell(ctx context.Context, charRepo *infrastructure.FileCharacte
 		SpellRepo: spellRepo,
 	}
 	if output, err := learnService.Execute(ctx, *name, *spell); err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println(ErrGeneral, err)
 		os.Exit(1)
 	} else {
 		fmt.Println(output)
@@ -243,15 +241,15 @@ func handleLearnSpell(ctx context.Context, charRepo *infrastructure.FileCharacte
 
 func handlePrepareSpell(ctx context.Context, charRepo *infrastructure.FileCharacterRepo, spellRepo *infrastructure.SpellRepository) {
 	prepareCmd := flag.NewFlagSet("prepare-spell", flag.ExitOnError)
-	name := prepareCmd.String("name", "", "Character name")
+	name := prepareCmd.String("name", "", CharacterName)
 	spell := prepareCmd.String("spell", "", "Spell name")
 
 	if err := prepareCmd.Parse(os.Args[2:]); err != nil {
-		fmt.Println("Failed to parse flags:", err)
+		fmt.Println(ErrParseFlags, err)
 		os.Exit(2)
 	}
 	if *name == "" || *spell == "" {
-		fmt.Println("Error: -name and -spell are required")
+		fmt.Println(NameAndSpellReq)
 		os.Exit(1)
 	}
 
@@ -260,7 +258,7 @@ func handlePrepareSpell(ctx context.Context, charRepo *infrastructure.FileCharac
 		SpellRepo: spellRepo,
 	}
 	if output, err := prepareService.Execute(ctx, *name, *spell); err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println(ErrGeneral, err)
 		os.Exit(1)
 	} else {
 		fmt.Println(output)
