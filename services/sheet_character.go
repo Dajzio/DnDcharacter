@@ -24,9 +24,19 @@ func (s *CharacterSheetService) Execute(ctx context.Context, name string, format
 	}
 
 	var sb strings.Builder
-
 	sb.WriteString(fmt.Sprintf("# %s\n\n", char.Name))
+	sb.WriteString(s.buildCharacterSection(char))
+	sb.WriteString(s.buildAbilityScoresSection(char))
+	sb.WriteString(s.buildSkillsSection(char))
+	sb.WriteString(s.buildEquipmentSection(char))
+	sb.WriteString(s.buildCombatStatsSection(char))
+	sb.WriteString(s.buildSpellSection(char))
 
+	return sb.String(), nil
+}
+
+func (s *CharacterSheetService) buildCharacterSection(char *domain.Character) string {
+	var sb strings.Builder
 	sb.WriteString("## Character\n")
 	sb.WriteString(fmt.Sprintf("Class: %s\n", char.Class))
 	sb.WriteString(fmt.Sprintf("Race: %s\n", char.Race))
@@ -34,7 +44,11 @@ func (s *CharacterSheetService) Execute(ctx context.Context, name string, format
 	sb.WriteString(fmt.Sprintf("Level: %d\n", char.Level))
 	sb.WriteString(fmt.Sprintf("Proficiency bonus: +%d\n", char.ProficiencyBonus))
 	sb.WriteString(fmt.Sprintf("Passive perception: %d\n\n", char.PassivePerception))
+	return sb.String()
+}
 
+func (s *CharacterSheetService) buildAbilityScoresSection(char *domain.Character) string {
+	var sb strings.Builder
 	sb.WriteString("## Ability scores\n")
 	sb.WriteString(fmt.Sprintf("STR: %d (%+d)\n", char.AbilityScores.Str, domain.Modifier(char.AbilityScores.Str)))
 	sb.WriteString(fmt.Sprintf("DEX: %d (%+d)\n", char.AbilityScores.Dex, domain.Modifier(char.AbilityScores.Dex)))
@@ -42,9 +56,13 @@ func (s *CharacterSheetService) Execute(ctx context.Context, name string, format
 	sb.WriteString(fmt.Sprintf("INT: %d (%+d)\n", char.AbilityScores.Int, domain.Modifier(char.AbilityScores.Int)))
 	sb.WriteString(fmt.Sprintf("WIS: %d (%+d)\n", char.AbilityScores.Wis, domain.Modifier(char.AbilityScores.Wis)))
 	sb.WriteString(fmt.Sprintf("CHA: %d (%+d)\n\n", char.AbilityScores.Cha, domain.Modifier(char.AbilityScores.Cha)))
+	return sb.String()
+}
 
-	sb.WriteString("## Skills\n")
+func (s *CharacterSheetService) buildSkillsSection(char *domain.Character) string {
 	repo := domain.NewSkillRepository()
+	var sb strings.Builder
+	sb.WriteString("## Skills\n")
 	for _, skill := range repo.AllSkills() {
 		marked := "[]"
 		if repo.HasSkill(char.SkillProficiencies, skill.Name) {
@@ -53,7 +71,11 @@ func (s *CharacterSheetService) Execute(ctx context.Context, name string, format
 		sb.WriteString(fmt.Sprintf("%s %s (%s)\n", marked, skill.Name, skill.Ability))
 	}
 	sb.WriteString("\n")
+	return sb.String()
+}
 
+func (s *CharacterSheetService) buildEquipmentSection(char *domain.Character) string {
+	var sb strings.Builder
 	sb.WriteString("## Equipment\n")
 	if char.Equipment.MainHandWeapon != nil {
 		sb.WriteString(fmt.Sprintf("Main hand: %s\n", char.Equipment.MainHandWeapon.Name))
@@ -65,11 +87,19 @@ func (s *CharacterSheetService) Execute(ctx context.Context, name string, format
 		sb.WriteString(fmt.Sprintf("Shield: %s\n", char.Equipment.Shield.Name))
 	}
 	sb.WriteString("\n")
+	return sb.String()
+}
 
+func (s *CharacterSheetService) buildCombatStatsSection(char *domain.Character) string {
+	var sb strings.Builder
 	sb.WriteString("## Combat stats\n")
 	sb.WriteString(fmt.Sprintf("Armor class: %d\n", char.ArmorClass))
 	sb.WriteString(fmt.Sprintf("Initiative bonus: %+d\n\n", char.Initiative))
+	return sb.String()
+}
 
+func (s *CharacterSheetService) buildSpellSection(char *domain.Character) string {
+	var sb strings.Builder
 	if len(char.SpellSlots) > 0 {
 		sb.WriteString("## Spell slots [leave empty on non-casters]\n")
 		keys := make([]int, 0, len(char.SpellSlots))
@@ -112,5 +142,5 @@ func (s *CharacterSheetService) Execute(ctx context.Context, name string, format
 		}
 	}
 
-	return sb.String(), nil
+	return sb.String()
 }

@@ -32,7 +32,7 @@ type Armor struct {
 var requestLimiter = time.Tick(100 * time.Millisecond) 
 
 func EnrichData() error {
-	fmt.Println("📡 Fetching D&D 5e data from API...")
+	fmt.Println("Fetching D&D 5e data from API...")
 
 	var wg sync.WaitGroup
 	var spells []Spell
@@ -77,7 +77,7 @@ func EnrichData() error {
 		return fmt.Errorf("saving equipment failed: %w", err)
 	}
 
-	fmt.Printf("✅ Data successfully enriched and saved: spells (%d), weapons (%d), armors (%d)\n",
+	fmt.Printf("Data successfully enriched and saved: spells (%d), weapons (%d), armors (%d)\n",
 		len(spells), len(weapons), len(armors))
 	return nil
 }

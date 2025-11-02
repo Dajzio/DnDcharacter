@@ -1,0 +1,74 @@
+[
+  {
+    "ID": "4578819716094643106",
+    "Name": "Qui-Gon Jinn",
+    "Race": "human",
+    "Class": "cleric",
+    "Background": "acolyte",
+    "Level": 10,
+    "AbilityScores": {
+      "Str": 15,
+      "Dex": 9,
+      "Con": 11,
+      "Int": 14,
+      "Wis": 16,
+      "Cha": 13
+    },
+    "SkillProficiencies": [
+      "history",
+      "insight",
+      "insight",
+      "religion"
+    ],
+    "ProficiencyBonus": 4,
+    "Equipment": {
+      "MainHandWeapon": {
+        "Name": "longsword",
+        "Category": "",
+        "Range": 0,
+        "TwoHanded": false
+      },
+      "OffHandWeapon": null,
+      "Armor": {
+        "Name": "chain shirt",
+        "ArmorClass": 0,
+        "DexBonus": false
+      },
+      "Shield": {
+        "Name": "shield",
+        "ArmorClass": 0
+      }
+    },
+    "Spells": [
+      {
+        "Name": "Command",
+        "Level": 1,
+        "Class": [
+          "cleric",
+          "paladin"
+        ]
+      },
+      {
+        "Name": "Beacon of Hope",
+        "Level": 3,
+        "Class": [
+          "cleric"
+        ]
+      }
+    ],
+    "spell_slots": {
+      "0": 5,
+      "1": 4,
+      "2": 3,
+      "3": 3,
+      "4": 3,
+      "5": 2
+    },
+    "SpellcastingAbility": "WIS",
+    "SpellSaveDC": 15,
+    "SpellAttackBonus": 7,
+    "armor_class": 14,
+    "initiative": -1,
+    "passive_perception": 13
+  }
+]
