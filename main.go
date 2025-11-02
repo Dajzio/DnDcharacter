@@ -11,6 +11,15 @@ import (
 	"strings"
 )
 
+// --- Constants for repeated literals ---
+const (
+	ErrParseFlags   = "Failed to parse flags:"
+	ErrGeneral      = "Error:"
+	CharacterName   = "Character name"
+	NameRequired    = "Error: -name is required"
+	NameAndSpellReq = "Error: -name and -spell are required"
+)
+
 func usage() {
 	fmt.Printf(`Usage:
   %s create -name CHARACTER_NAME -race RACE -class CLASS -level N -str N -dex N -con N -int N -wis N -cha N
@@ -68,7 +77,7 @@ func main() {
 
 func handleCreate(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
 	createCmd := flag.NewFlagSet("create", flag.ExitOnError)
-	name := createCmd.String("name", "", "character name (required)")
+	name := createCmd.String("name", "", CharacterName)
 	race := createCmd.String("race", "", "character race")
 	class := createCmd.String("class", "", "character class")
 	background := createCmd.String("background", "acolyte", "character background")
@@ -81,11 +90,11 @@ func handleCreate(ctx context.Context, charRepo *infrastructure.FileCharacterRep
 	cha := createCmd.Int("cha", 10, "charisma")
 
 	if err := createCmd.Parse(os.Args[2:]); err != nil {
-		fmt.Println("Failed to parse flags:", err)
+		fmt.Println(ErrParseFlags, err)
 		os.Exit(2)
 	}
 	if *name == "" {
-		fmt.Println("Error: -name is required")
+		fmt.Println(NameRequired)
 		os.Exit(2)
 	}
 
@@ -107,7 +116,7 @@ func handleCreate(ctx context.Context, charRepo *infrastructure.FileCharacterRep
 	createService := &services.CreateCharacterService{Repo: charRepo}
 	c, err := createService.Execute(ctx, input)
 	if err != nil {
-		fmt.Println("Error creating character:", err)
+		fmt.Println(ErrGeneral, err)
 		os.Exit(2)
 	}
 
@@ -117,7 +126,7 @@ func handleCreate(ctx context.Context, charRepo *infrastructure.FileCharacterRep
 func handleList(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
 	list, err := charRepo.List(ctx)
 	if err != nil {
-		fmt.Println("Error listing characters:", err)
+		fmt.Println(ErrGeneral, err)
 		os.Exit(2)
 	}
 	if len(list) == 0 {
@@ -133,44 +142,45 @@ func handleList(ctx context.Context, charRepo *infrastructure.FileCharacterRepo)
 
 func handleView(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
 	viewCmd := flag.NewFlagSet("view", flag.ExitOnError)
-	name := viewCmd.String("name", "", "Character name to view")
+	name := viewCmd.String("name", "", CharacterName)
 	if err := viewCmd.Parse(os.Args[2:]); err != nil {
-		fmt.Println("Failed to parse flags:", err)
+		fmt.Println(ErrParseFlags, err)
 		os.Exit(2)
 	}
 	if *name == "" {
-		fmt.Println("Please provide a name using -name flag")
+		fmt.Println(NameRequired)
 		os.Exit(1)
 	}
 	viewService := &services.ViewCharacterService{Repo: charRepo}
 	if err := viewService.Execute(ctx, *name); err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println(ErrGeneral, err)
 		os.Exit(1)
 	}
 }
 
 func handleDelete(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
 	deleteCmd := flag.NewFlagSet("delete", flag.ExitOnError)
-	name := deleteCmd.String("name", "", "Character name to delete")
+	name := deleteCmd.String("name", "", CharacterName)
 	if err := deleteCmd.Parse(os.Args[2:]); err != nil {
-		fmt.Println("Failed to parse flags:", err)
+		fmt.Println(ErrParseFlags, err)
 		os.Exit(2)
 	}
 	if *name == "" {
-		fmt.Println("Error: -name is required")
+		fmt.Println(NameRequired)
 		os.Exit(2)
 	}
 	deleteService := &services.DeleteCharacterService{Repo: charRepo}
 	if err := deleteService.Execute(ctx, *name); err != nil {
-		fmt.Println("Error deleting character:", err)
+		fmt.Println(ErrGeneral, err)
 		os.Exit(2)
 	}
 	fmt.Printf("deleted %s\n", *name)
 }
 
+
 func handleEquip(ctx context.Context, charRepo *infrastructure.FileCharacterRepo) {
 	equipCmd := flag.NewFlagSet("equip", flag.ExitOnError)
-	name := equipCmd.String("name", "", "Character name")
+	name := equipCmd.String("name", "", CharacterName)
 	weapon := equipCmd.String("weapon", "", "Weapon name")
 	armor := equipCmd.String("armor", "", "Armor name")
 	shield := equipCmd.String("shield", "", "Shield name")
