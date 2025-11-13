@@ -1,2 +1,2 @@
 # DnDcharacterGenerator
-hello
+Character creator for D&D players 
